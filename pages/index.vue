@@ -1,8 +1,14 @@
 <script setup lang="ts">
+import CreateTeamDialog from "~/components/CreateTeamDialog.vue";
 import Team from "~/components/Team.vue";
 import { useMatch } from "~/stores/match";
 
-const { value, addTeam } = useMatch();
+const { value } = useMatch();
+
+const createTeamDialog = ref<InstanceType<typeof CreateTeamDialog>>();
+function showCreateTeamDialog() {
+  createTeamDialog.value?.showDialog();
+}
 </script>
 
 <template>
@@ -13,7 +19,8 @@ const { value, addTeam } = useMatch();
       </li>
     </ul>
 
-    <button @click="addTeam()">Create Team</button>
+    <button @click="showCreateTeamDialog()">Create Team</button>
+    <CreateTeamDialog ref="createTeamDialog" />
   </div>
 </template>
 
