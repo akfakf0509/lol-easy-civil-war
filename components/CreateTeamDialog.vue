@@ -35,6 +35,10 @@ defineExpose({ showDialog });
 <style lang="scss" scoped>
 .content {
   padding: 16px;
+
+  &__header {
+    @include font-heading-l;
+  }
 }
 
 .dialog {
@@ -43,7 +47,7 @@ defineExpose({ showDialog });
   left: 50%;
   transform: translate(-50%, -50%);
 
-  box-shadow: 0px 0px 8px 2px rgba(0, 0, 0, 0.75);
-  border-radius: 12px;
+  background-color: $color-surface;
+  border: 2px solid $color-border;
 }
 </style>
