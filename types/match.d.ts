@@ -7,5 +7,6 @@ export interface Team {
 }
 
 export interface Match {
+  members: Member[];
   team: Team[];
 }
