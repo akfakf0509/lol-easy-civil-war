@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import Team from "~/components/Team.vue";
 import { useMatch } from "~/stores/match";
 
 const { value } = useMatch();
@@ -8,9 +7,7 @@ const { value } = useMatch();
 <template>
   <div>
     <ul>
-      <li v-for="(i, index) in value.team" :key="`team-${index}`">
-        <Team v-bind="i" />
-      </li>
+      <li v-for="(i, index) in value.team" :key="`team-${index}`">i</li>
     </ul>
   </div>
 </template>
