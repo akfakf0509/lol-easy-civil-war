@@ -1,24 +1,23 @@
 <script setup lang="ts">
 export interface Props {
-  profileImageId: number;
-  nickname: string;
+  profileImageId?: number;
+  nickname?: string;
 }
 
 defineProps<Props>();
 </script>
 
 <template>
-  <div class="member">
+  <div class="member" v-if="nickname">
     <img :src="useProfileImage(profileImageId)" class="member__profile" />
     <span class="member__name">{{ nickname }}</span>
   </div>
+  <button class="member member--empty" v-else>Empty</button>
 </template>
 
 <style lang="scss" scoped>
-// #20272b
-// #080c10
-
 .member {
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -27,7 +26,19 @@ defineProps<Props>();
 
   padding: 32px;
 
-  background: url("@/assets/images/member-banner.svg");
+  &--empty {
+    @include font-heading-xs;
+
+    width: 100%;
+    border: 1px solid $color-border;
+
+    &:hover {
+      background-color: $color-surface-hover;
+    }
+    &:active {
+      color: $color-on-surface-active;
+    }
+  }
 
   &__profile {
     width: 128px;
